@@ -1,5 +1,7 @@
 # tmdb-workers-mcp-server
 
+![Static Badge](https://img.shields.io/badge/Made%20with-Cloudflare%20Workers-blue?style=flat&logo=cloudflareworkers&logoColor=white&color=F38020)
+
 This MCP server provides movie data using [The Movie Database (TMDB)](https://www.themoviedb.org/) API.
 
 ## Features
@@ -34,7 +36,7 @@ N/A
         "X-TMDB-ACCESS-TOKEN:${TMDB_ACCESS_TOKEN}"
       ],
       "env": {
-        "TMDB_ACCESS_TOKEN": "wZwWIl62CiMMI32tp3V2YhwIZ4YAYOxNjlLEgljzYmXQOSMTiXY9WJy9IcTiL2TmIZXYjmizjIA.ijeSMFWMsIDXZJMY0zv3i446wdxj5wl0TOJUaVsNmzSzWMdxY0V-2NOCb3xZ.MV6HJiOvOWmYM6GUQecEZJzdV5W-ZOhGJNB3kSIiYNyWYcZ4ycsRdwNiN_XTMziONMiC5tlpzYVjWJyI_LM1liaZ4OMiUiiTz5QY8bhYz4J"
+        "TMDB_ACCESS_TOKEN": "wZwWIl62CiMMI32tp3V2Yhw..."
       }
     }
   }

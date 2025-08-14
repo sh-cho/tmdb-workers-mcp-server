@@ -50,3 +50,22 @@ You must provide a valid TMDB API read access token in the `X-TMDB-ACCESS-TOKEN`
 
 ## References
 - https://developers.cloudflare.com/agents/guides/remote-mcp-server/
+
+
+## Dev
+
+```shell
+pnpm start
+```
+Run mcp server locally.
+
+```shell
+npx @modelcontextprotocol/inspector@latest
+```
+Run inspector and set,
+
+- transport: Streamable HTTP
+- url: `http://127.0.0.1:8787/mcp`
+- Authentication
+  - Header Name: `X-TMDB-ACCESS-TOKEN`
+  - Header Value: `<your_tmdb_access_token>`

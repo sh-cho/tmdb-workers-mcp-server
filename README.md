@@ -1,50 +1,50 @@
-# Building a Remote MCP Server on Cloudflare (Without Auth)
+# tmdb-workers-mcp-server
 
-This example allows you to deploy a remote MCP server that doesn't require authentication on Cloudflare Workers. 
+This MCP server provides movie data using [The Movie Database (TMDB)](https://www.themoviedb.org/) API.
 
-## Get started: 
+## Features
 
-[![Deploy to Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/ai/tree/main/demos/remote-mcp-authless)
+### Tools
+- **Search Movies**: Search for movies by title. If no query is provided, returns popular movies.
 
-This will deploy your MCP server to a URL like: `remote-mcp-server-authless.<your-account>.workers.dev/sse`
+- **Get Trending Movies**: Get a list of trending movies. Must provide the time window for trending movies, which can be either "day" or "week".
 
-Alternatively, you can use the command line below to get the remote MCP Server created on your local machine:
-```bash
-npm create cloudflare@latest -- my-mcp-server --template=cloudflare/ai/demos/remote-mcp-authless
-```
+### Resources
+N/A
 
-## Customizing your MCP Server
+### Prompts
+N/A
 
-To add your own [tools](https://developers.cloudflare.com/agents/model-context-protocol/tools/) to the MCP server, define each tool inside the `init()` method of `src/index.ts` using `this.server.tool(...)`. 
+## Supported transport types
+- SSE (/sse)
+- Streamable HTTP (/mcp)
 
-## Connect to Cloudflare AI Playground
+## Usage
 
-You can connect to your MCP server from the Cloudflare AI Playground, which is a remote MCP client:
-
-1. Go to https://playground.ai.cloudflare.com/
-2. Enter your deployed MCP server URL (`remote-mcp-server-authless.<your-account>.workers.dev/sse`)
-3. You can now use your MCP tools directly from the playground!
-
-## Connect Claude Desktop to your MCP server
-
-You can also connect to your remote MCP server from local MCP clients, by using the [mcp-remote proxy](https://www.npmjs.com/package/mcp-remote). 
-
-To connect to your MCP server from Claude Desktop, follow [Anthropic's Quickstart](https://modelcontextprotocol.io/quickstart/user) and within Claude Desktop go to Settings > Developer > Edit Config.
-
-Update with this configuration:
-
+### Claude Desktop
 ```json
 {
   "mcpServers": {
-    "calculator": {
+    "tmdb": {
       "command": "npx",
       "args": [
         "mcp-remote",
-        "http://localhost:8787/sse"  // or remote-mcp-server-authless.your-account.workers.dev/sse
-      ]
+        "https://tmdb.mcp.joe-brothers.com/mcp",
+        "--header",
+        "X-TMDB-ACCESS-TOKEN:${TMDB_ACCESS_TOKEN}"
+      ],
+      "env": {
+        "TMDB_ACCESS_TOKEN": "wZwWIl62CiMMI32tp3V2YhwIZ4YAYOxNjlLEgljzYmXQOSMTiXY9WJy9IcTiL2TmIZXYjmizjIA.ijeSMFWMsIDXZJMY0zv3i446wdxj5wl0TOJUaVsNmzSzWMdxY0V-2NOCb3xZ.MV6HJiOvOWmYM6GUQecEZJzdV5W-ZOhGJNB3kSIiYNyWYcZ4ycsRdwNiN_XTMziONMiC5tlpzYVjWJyI_LM1liaZ4OMiUiiTz5QY8bhYz4J"
+      }
     }
   }
 }
 ```
 
-Restart Claude and you should see the tools become available. 
+### Authentication
+You must provide a valid TMDB API read access token in the `X-TMDB-ACCESS-TOKEN` header.
+
+- https://www.themoviedb.org/settings/api
+
+## References
+- https://developers.cloudflare.com/agents/guides/remote-mcp-server/

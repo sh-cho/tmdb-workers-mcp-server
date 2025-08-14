@@ -16,22 +16,22 @@
 			"custom_domain": true
 		}
 	],
-	// "migrations": [
-	// 	{
-	// 		"new_sqlite_classes": [
-	// 			"TmdbMCP"
-	// 		],
-	// 		"tag": "v1"
-	// 	}
-	// ],
-	// "durable_objects": {
-	// 	"bindings": [
-	// 		{
-	// 			"class_name": "TmdbMCP",
-	// 			"name": "MCP_OBJECT"
-	// 		}
-	// 	]
-	// },
+	"migrations": [
+		{
+			"new_sqlite_classes": [
+				"TmdbMCP"
+			],
+			"tag": "v1"
+		}
+	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"class_name": "TmdbMCP",
+				"name": "MCP_OBJECT"
+			}
+		]
+	},
 	"observability": {
 		"enabled": true
 	},

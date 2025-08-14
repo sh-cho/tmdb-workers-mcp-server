@@ -10,6 +10,12 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
+	"routes": [
+		{
+			"pattern": "tmdb.mcp.joe-brothers.com",
+			"custom_domain": true
+		}
+	],
 	// "migrations": [
 	// 	{
 	// 		"new_sqlite_classes": [

@@ -12,7 +12,9 @@
 		"type-check": "tsc --noEmit"
 	},
 	"dependencies": {
+		"@fast-csv/format": "^5.0.5",
 		"@modelcontextprotocol/sdk": "1.17.1",
+		"@tdanks2000/tmdb-wrapper": "^1.3.3",
 		"agents": "^0.0.109",
 		"zod": "^3.25.67"
 	},

@@ -4,6 +4,8 @@
 
 This MCP server provides movie data using [The Movie Database (TMDB)](https://www.themoviedb.org/) API.
 
+- Remote MCP Server URL: https://tmdb.mcp.joe-brothers.com/
+
 ## Features
 
 ### Tools
